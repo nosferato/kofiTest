@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>THE BEST OF THE BEST!</h2>
+
+  <div ng-model="highScores" ng-repeat="user in highScores | orderBy:'score':true">
+    <div>{{$index+1}}. {{user.name}}:{{user.score}}</div>
+  </div>
+
+  <hr>
+
+</div>

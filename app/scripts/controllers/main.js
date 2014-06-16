@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name toDoApp.controller:MainCtrl
+ * @name piratzy.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the toDoApp
+ * Controller of the piratzy
  */
-angular.module('toDoApp')
+angular.module('piratzy')
   .controller('MainCtrl', function ($scope, localStorageService) {
       var todosInStore = localStorageService.get('todos');
 

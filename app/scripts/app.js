@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('toDoApp', [
+  .module('piratzy', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -31,6 +31,14 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/chooseGame', {
+        templateUrl: 'views/chooseGame.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/highScore', {
+        templateUrl: 'views/highScore.html',
+        controller: 'HighScoreCtrl'
       })
       .otherwise({
         redirectTo: '/'
