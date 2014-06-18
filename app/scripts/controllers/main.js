@@ -9,5 +9,6 @@
  */
 angular.module('piratzyApp')
   .controller('MainCtrl', function ($scope, localStorageService) {
+     $scope.pera = localStorageService;
 
   });

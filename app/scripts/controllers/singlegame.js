@@ -9,5 +9,5 @@
  */
 angular.module('piratzyApp')
   .controller('SingleGameCtrl', function ($scope) {
-
+    $scope.pera = '';
   });

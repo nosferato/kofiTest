@@ -19,7 +19,7 @@ angular.module('piratzyApp')
            {
              selectedHand.push(scope.dicesArray[i].number);
            }
-          };
+          }
 
           scope.selectedDices = selectedHand;
 
