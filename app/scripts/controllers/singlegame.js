@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name piratzyApp.controller:MainCtrl
+ * @name piratzyApp.controller:SinglegameCtrl
  * @description
- * # MainCtrl
+ * # SinglegameCtrl
  * Controller of the piratzyApp
  */
 angular.module('piratzyApp')
-  .controller('MainCtrl', function ($scope, localStorageService) {
+  .controller('SingleGameCtrl', function ($scope) {
 
   });

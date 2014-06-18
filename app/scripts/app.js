@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name toDoApp
+ * @name piratzyApp
  * @description
  * # toDoApp
  *
  * Main module of the application.
  */
 angular
-  .module('piratzy', [
+  .module('piratzyApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -39,6 +39,10 @@ angular
       .when('/highScore', {
         templateUrl: 'views/highScore.html',
         controller: 'HighScoreCtrl'
+      })
+      .when('/singleGame', {
+        templateUrl: 'views/singlegame.html',
+        controller: 'SingleGameCtrl'
       })
       .otherwise({
         redirectTo: '/'

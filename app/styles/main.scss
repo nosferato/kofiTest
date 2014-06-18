@@ -90,3 +90,30 @@ body {
     border-bottom: 0;
   }
 }
+
+.slidePage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slidePage.ng-enter,
+.slidePage.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slidePage.ng-enter {
+    left: 100%;
+}
+.slidePage.ng-enter-active {
+    left: 0;
+}
+.slidePage.ng-leave {
+    left: 0;
+}
+.slidePage.ng-leave-active {
+    left: -100%;
+}

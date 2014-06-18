@@ -1,0 +1,17 @@
+<p>This is the dices directive</p>
+
+<div
+    ng-repeat="dice in dicesArray"
+    ng-click="selectDice($index)"
+    class="btn btn-danger"
+    ng-class="{active: dice.selected}"
+    ng-show="dice.number">{{dice.number}}
+</div>
+
+<div class="btn btn-primary" ng-click="getDices()" ng-show="numberOfTries < 3 && dicesArray ">ROLL</div>
+<div class="btn btn-primary" ng-click="newGame()"  ng-show="numberOfTries >= 3 || numberOfTries < 0">New game</div>
+
+<div>
+    <span ng-repeat="dice in selectedDices track by $index">{{dice}}</span>
+
+</div>

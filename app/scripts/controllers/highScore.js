@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name piratzy.controller:AboutCtrl
+ * @name piratzyApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the piratzy
+ * Controller of the piratzyApp
  */
-angular.module('piratzy')
+angular.module('piratzyApp')
   .controller('HighScoreCtrl', function ($scope) {
 
     $scope.highScores = [

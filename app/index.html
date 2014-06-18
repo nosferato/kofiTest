@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="piratzy">
+  <body ng-app="piratzyApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -23,7 +23,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#">Home</a></li>
           <li><a ng-href="#/chooseGame">Choose Game</a></li>
           <li><a ng-href="#/highScore">High Score</a></li>
           <li><a ng-href="#/about">About</a></li>
@@ -31,12 +31,15 @@
         </ul>
         <h3 class="text-muted">Piratzy</h3>
       </div>
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> s ljubavlju...Bozen</p>
+      <div style="position:relative; height:600px">
+          <div  ng-view class="slidePage"></div>
       </div>
+      <div class="container">
+        <div class="footer">
+          <p><span class="glyphicon glyphicon-heart"></span> s ljubavlju...Bozen</p>
+        </div>
+      </div>
+
     </div>
 
 
@@ -91,6 +94,10 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/highScore.js"></script>
+        <script src="scripts/controllers/singlegame.js"></script>
+        <script src="scripts/controllers/dices.js"></script>
+        <script src="scripts/directives/dices.js"></script>
+        <script src="scripts/controllers/board.js"></script>
         <!-- endbuild -->
 </body>
 </html>
