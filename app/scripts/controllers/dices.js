@@ -8,9 +8,10 @@
  * Controller of the piratzyApp
  */
 angular.module('piratzyApp')
-  .controller('DicesCtrl', function ($scope) {
+  .controller('DicesCtrl', function ($scope, $rootScope, Game) {
         $scope.numberOfTries = -1;
         $scope.dicesArray = [];
+
         $scope.$watch('dicesArray', function(newArray, oldArray, scope){
           var selectedHand = [];
           for (var i = 0; i < scope.dicesArray.length;i++)
@@ -21,9 +22,16 @@ angular.module('piratzyApp')
            }
           }
 
-          scope.selectedDices = selectedHand;
-
+          Game.setUserHand(selectedHand);
         },true);
+
+        $scope.showRollButton = function(){
+          return $scope.gameActive && $scope.playerTurnStatus;
+        };
+        $scope.showNewGameButton = function(){
+          return !$scope.gameActive;
+        };
+
         $scope.getDices = function (){
           if ($scope.numberOfTries < 3)
           {
@@ -38,11 +46,26 @@ angular.module('piratzyApp')
           }
         };
 
+        $rootScope.$on('game:gameStatus', function(event,gameStatus){
+          $scope.gameActive = gameStatus;
+        });
+
+        $rootScope.$on('game:playerTurnStatus', function(event,playerTurnStatus){
+          $scope.playerTurnStatus = playerTurnStatus;
+          if(!playerTurnStatus)
+          {
+            $scope.resetHand();
+          }
+        });
+
         $scope.newGame = function(){
-        $scope.numberOfTries = 0;
-         $scope.resetHand();
+          $scope.resetHand();
+          Game.startGame();
         };
+
         $scope.resetHand = function(){
+
+          $scope.numberOfTries = 0;
           $scope.dicesArray = [
             {selected: false},
             {selected: false},

@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.sortable',
+    'ngGrid',
     'LocalStorageModule'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){

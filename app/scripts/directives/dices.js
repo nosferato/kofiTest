@@ -11,6 +11,7 @@ angular.module('piratzyApp')
     return {
       templateUrl: 'views/dices.html',
       restrict: 'E',
+      replace: true,
       controller: 'DicesCtrl'
     };
   });

@@ -1,0 +1,16 @@
+<div>
+  <p>This is the board directive</p>
+
+
+  <div ng-repeat="user in usersScore" style="margin-right: 50px;float:left;">
+    <div>{{user.id}}</div>
+    <div ng-repeat="box in user.scoreBoxes">
+      <div style="float:left;  border: 1px solid black;width:100px;text-align:center;">{{box.box}}</div>
+      <div style="float:left;border: 1px solid black;width:50px;text-align:center;" ng-click="submitScore(box)">{{box.score | scoreBox}}</div>
+      <div style="clear:both"></div>
+    </div>
+    <div>total: {{user.total()}}</div>
+  </div>
+
+  <div class="pera" ng-click="promenaDicea()"> klikni me</div>
+</div>
