@@ -9,9 +9,9 @@
  */
 angular.module('piratzyApp')
   .factory('Game', function ($rootScope) {
-    var gameActive = false;
-    var turnStatus = false;
-    var userHand = [];
+    var gameActive = false,
+        turnStatus = false,
+        userHand = [];
 
     var emitGameStatus = function(){
       $rootScope.$emit('game:gameStatus', gameActive);
@@ -45,7 +45,7 @@ angular.module('piratzyApp')
       {
         total += userHand[i];
       }
-      return total > 0? total : -1 ;
+      return total;
     };
 
     function startTurn () {

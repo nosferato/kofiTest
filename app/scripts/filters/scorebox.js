@@ -4,7 +4,7 @@
  * @ngdoc filter
  * @name piratzyApp.filter:scoreBox
  * @function
- * @description
+ * @description show valid number or empty space in scorebox
  * # scoreBox
  * Filter in the piratzyApp.
  */

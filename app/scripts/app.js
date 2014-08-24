@@ -26,11 +26,19 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/login.html',
+        controller: 'MainCtrl'
+      })
+      .when('/homePage', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/quickGame', {
+        templateUrl: 'views/chooseGame.html',
         controller: 'AboutCtrl'
       })
       .when('/chooseGame', {
@@ -40,6 +48,10 @@ angular
       .when('/highScore', {
         templateUrl: 'views/highScore.html',
         controller: 'HighScoreCtrl'
+      })
+      .when('/singleGameBuilder', {
+        templateUrl: 'views/singlegamebuilder.html',
+        controller: 'MainCtrl'
       })
       .when('/singleGame', {
         templateUrl: 'views/singlegame.html',

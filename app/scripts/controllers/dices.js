@@ -74,6 +74,7 @@ angular.module('piratzyApp')
             {selected: false}
           ];
         };
+
         $scope.selectDice = function(index){
           $scope.dicesArray[index].selected = !$scope.dicesArray[index].selected;
         };
