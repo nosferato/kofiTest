@@ -38,8 +38,8 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/quickGame', {
-        templateUrl: 'views/chooseGame.html',
-        controller: 'AboutCtrl'
+        templateUrl: 'views/quickgamebuilder.html',
+        controller: 'MainCtrl'
       })
       .when('/chooseGame', {
         templateUrl: 'views/chooseGame.html',

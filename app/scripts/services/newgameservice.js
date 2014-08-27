@@ -44,14 +44,20 @@ angular.module('piratzyApp')
     };
 
     function startGame(path){
-      $http.post('/startGame', angular.toJson(this))
+
+      var successRedirectUrl = '/yatzy/play/';
+      var errorRedirectUrl = '/singleGame';
+      $http.post(path, angular.toJson(this))
            .success(function(data){
               alert("starting Game success");
+              if (typeof data.playId !== "undefined")
+              {
+                $location.path(successRedirectUrl + data.playId);
+              }
            })
            .error(function(){
-              alert("starting Game ERROR...redirecting to:" + path);
-              $location.path(path);
-
+              alert("starting Game ERROR...redirecting to: " + errorRedirectUrl);
+              $location.path(errorRedirectUrl);
           })
     };
     // Public API here

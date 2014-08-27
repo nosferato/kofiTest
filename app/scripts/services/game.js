@@ -10,7 +10,7 @@
 angular.module('piratzyApp')
   .factory('Game', function ($rootScope) {
     var gameActive = false,
-        turnStatus = false,
+        turnStatus = true,
         userHand = [];
 
     var emitGameStatus = function(){
@@ -48,6 +48,10 @@ angular.module('piratzyApp')
       return total;
     };
 
+    function getUserHand () {
+      return userHand;
+    };
+
     function startTurn () {
       console.log('startTurn....');
       turnStatus = true;
@@ -60,13 +64,24 @@ angular.module('piratzyApp')
       emitTurnStatus();
     };
 
+    function getGameActive () {
+      return gameActive;
+    };
+
+    function getPlayerTurnStatus () {
+      return turnStatus;
+    };
+
     // Public API here
     return {
       startGame: startGame,
       finishGame: finishGame,
+      getUserHand: getUserHand,
       setUserHand: setUserHand,
       getTotalSelectedDices: getTotalSelectedDices,
       startTurn: startTurn,
-      finishTurn: finishTurn
+      finishTurn: finishTurn,
+      getGameActive: getGameActive,
+      getPlayerTurnStatus: getPlayerTurnStatus
     };
   });

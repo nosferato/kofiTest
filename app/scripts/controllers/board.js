@@ -8,10 +8,56 @@
  * Controller of the piratzyApp
  */
 angular.module('piratzyApp')
-  .controller('BoardCtrl', function ($rootScope, $scope, UserScore, Game) {
+  .controller('BoardCtrl', function ($rootScope, $scope, UserScore, Game, RollService) {
 
      $scope.usersScore = [];
-
+$scope.changedBoard = {
+                           "score":
+                           [
+                             {
+                               "userId": "123",
+                               "scoreBoxes":
+                               [
+                                 {"box": "1", "score": 2},
+                                 {"box": "2", "score": -1},
+                                 {"box": "3", "score": -1},
+                                 {"box": "4", "score": -1},
+                                 {"box": "5", "score": -1},
+                                 {"box": "6", "score": -1},
+                                 {"box": "1pair", "score": -1},
+                                 {"box": "2pair", "score": -1},
+                                 {"box": "3ofAKind", "score": -1},
+                                 {"box": "4ofAKind", "score": -1},
+                                 {"box": "smallStreight", "score": -1},
+                                 {"box": "largeStreight", "score": -1},
+                                 {"box": "fullHouse", "score": -1},
+                                 {"box": "yatzy", "score": -1},
+                                 {"box": "chance", "score": -1}
+                               ]
+                             },
+                             {
+                               "userId": "321",
+                               "scoreBoxes":
+                               [
+                                 {"box": "1", "score": -1},
+                                 {"box": "2", "score": -1},
+                                 {"box": "3", "score": -1},
+                                 {"box": "4", "score": -1},
+                                 {"box": "5", "score": -1},
+                                 {"box": "6", "score": -1},
+                                 {"box": "1pair", "score": -1},
+                                 {"box": "2pair", "score": -1},
+                                 {"box": "3ofAKind", "score": -1},
+                                 {"box": "4ofAKind", "score": -1},
+                                 {"box": "smallStreight", "score": -1},
+                                 {"box": "largeStreight", "score": -1},
+                                 {"box": "fullHouse", "score": -1},
+                                 {"box": "yatzy", "score": -1},
+                                 {"box": "chance", "score": -1}
+                               ]
+                             }
+                           ]
+                         };
      $scope.clearBoard = {
                            "score":
                            [
@@ -72,9 +118,6 @@ angular.module('piratzyApp')
     };
 
     $scope.$watch('fiveDiceGame',function(newVal, oldVal){
-    console.log("asdas")
-    console.log(newVal)
-    console.log(oldVal)
      if(newVal !== oldVal)
      {
         $scope.convertToAngular();
@@ -85,7 +128,11 @@ angular.module('piratzyApp')
           //box is empty
       if (box.score === -1) //and player turn
       {
-        box.score = Game.getTotalSelectedDices();
+
+        RollService.submitScore("putScore", { box: box.box, dices: Game.getUserHand()}).then(function(){},function(error){
+          $scope.fiveDiceGame = $scope.changedBoard;
+        });
+
         console.log("Submit score....");
         Game.finishTurn();
         Game.startTurn();
