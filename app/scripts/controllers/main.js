@@ -16,20 +16,20 @@ angular.module('piratzyApp')
 
      $scope.setPlayType = function (playType){
       NewGameService.setPlayType(playType);
-     }
+     };
 
      $scope.setAmount = function (amount){
       NewGameService.setAmount(amount);
-     }
+     };
 
      $scope.setTargetPoints = function (targetPoints){
       NewGameService.setTargetPoints(targetPoints);
-     }
+     };
 
      $scope.startGame = function (path){
        $scope.setTargetPoints($scope.targetPoints || -1);
        $scope.setAmount($scope.amount || 0.0001);
        NewGameService.startGame(path);
-     }
+     };
 
   });

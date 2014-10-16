@@ -9,44 +9,43 @@
  */
 angular.module('piratzyApp')
   .factory('RollService', function ($http) {
-
+    var self = this;
     function init(){
-      this.type = "roll",
-      this.data = {};
-    };
+      self.type = 'roll',
+      self.data = {};
+    }
 
     function setType(type){
-      this.type = type;
-    };
+      self.type = type;
+    }
 
     function setPlayType(playType){
-      this.playType = playType;
-    };
+      self.playType = playType;
+    }
 
     function roll(type, holding){
-      delete this.data.scorebox;
-      this.data.holding = holding;
+      delete self.data.scorebox;
+      self.data.holding = holding;
 
-      var path = "/play/123123/step";
+      var path = '/play/123123/step';
 
-      return $http.post(path, angular.toJson(this));
+      return $http.post(path, angular.toJson(self));
 
-    };
+    }
 
     function submitScore(type, scorebox){
-      delete this.data.holding;
-      this.data.scorebox = scorebox;
+      delete self.data.holding;
+      self.data.scorebox = scorebox;
 
+      var path = '/play/123123/step';
 
-      var path = "/play/123123/step";
+      return $http.post(path, angular.toJson(self));
 
-      return $http.post(path, angular.toJson(this));
-
-    };
+    }
 
     function rollSuccess (data) {
 
-    };
+    }
 
     // Public API here
     return {

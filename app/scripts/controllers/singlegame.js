@@ -9,6 +9,6 @@
  */
 angular.module('piratzyApp')
   .controller('SingleGameCtrl', function ($scope, Game) {
-  console.log("asd")
+  console.log('asd');
     Game.startGame();
   });

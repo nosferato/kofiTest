@@ -23,7 +23,7 @@ angular
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
     localStorageServiceProvider.setPrefix('ls');
   }])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -60,4 +60,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);

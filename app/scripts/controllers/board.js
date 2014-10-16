@@ -12,95 +12,95 @@ angular.module('piratzyApp')
 
      $scope.usersScore = [];
 $scope.changedBoard = {
-                           "score":
+                           'score':
                            [
                              {
-                               "userId": "123",
-                               "scoreBoxes":
+                               'userId': '123',
+                               'scoreBoxes':
                                [
-                                 {"box": "1", "score": 2},
-                                 {"box": "2", "score": -1},
-                                 {"box": "3", "score": -1},
-                                 {"box": "4", "score": -1},
-                                 {"box": "5", "score": -1},
-                                 {"box": "6", "score": -1},
-                                 {"box": "1pair", "score": -1},
-                                 {"box": "2pair", "score": -1},
-                                 {"box": "3ofAKind", "score": -1},
-                                 {"box": "4ofAKind", "score": -1},
-                                 {"box": "smallStreight", "score": -1},
-                                 {"box": "largeStreight", "score": -1},
-                                 {"box": "fullHouse", "score": -1},
-                                 {"box": "yatzy", "score": -1},
-                                 {"box": "chance", "score": -1}
+                                 {'box': '1', 'score': 2},
+                                 {'box': '2', 'score': -1},
+                                 {'box': '3', 'score': -1},
+                                 {'box': '4', 'score': -1},
+                                 {'box': '5', 'score': -1},
+                                 {'box': '6', 'score': -1},
+                                 {'box': '1pair', 'score': -1},
+                                 {'box': '2pair', 'score': -1},
+                                 {'box': '3ofAKind', 'score': -1},
+                                 {'box': '4ofAKind', 'score': -1},
+                                 {'box': 'smallStreight', 'score': -1},
+                                 {'box': 'largeStreight', 'score': -1},
+                                 {'box': 'fullHouse', 'score': -1},
+                                 {'box': 'yatzy', 'score': -1},
+                                 {'box': 'chance', 'score': -1}
                                ]
                              },
                              {
-                               "userId": "321",
-                               "scoreBoxes":
+                               'userId': '321',
+                               'scoreBoxes':
                                [
-                                 {"box": "1", "score": -1},
-                                 {"box": "2", "score": -1},
-                                 {"box": "3", "score": -1},
-                                 {"box": "4", "score": -1},
-                                 {"box": "5", "score": -1},
-                                 {"box": "6", "score": -1},
-                                 {"box": "1pair", "score": -1},
-                                 {"box": "2pair", "score": -1},
-                                 {"box": "3ofAKind", "score": -1},
-                                 {"box": "4ofAKind", "score": -1},
-                                 {"box": "smallStreight", "score": -1},
-                                 {"box": "largeStreight", "score": -1},
-                                 {"box": "fullHouse", "score": -1},
-                                 {"box": "yatzy", "score": -1},
-                                 {"box": "chance", "score": -1}
+                                 {'box': '1', 'score': -1},
+                                 {'box': '2', 'score': -1},
+                                 {'box': '3', 'score': -1},
+                                 {'box': '4', 'score': -1},
+                                 {'box': '5', 'score': -1},
+                                 {'box': '6', 'score': -1},
+                                 {'box': '1pair', 'score': -1},
+                                 {'box': '2pair', 'score': -1},
+                                 {'box': '3ofAKind', 'score': -1},
+                                 {'box': '4ofAKind', 'score': -1},
+                                 {'box': 'smallStreight', 'score': -1},
+                                 {'box': 'largeStreight', 'score': -1},
+                                 {'box': 'fullHouse', 'score': -1},
+                                 {'box': 'yatzy', 'score': -1},
+                                 {'box': 'chance', 'score': -1}
                                ]
                              }
                            ]
                          };
      $scope.clearBoard = {
-                           "score":
+                           'score':
                            [
                              {
-                               "userId": "123",
-                               "scoreBoxes":
+                               'userId': '123',
+                               'scoreBoxes':
                                [
-                                 {"box": "1", "score": -1},
-                                 {"box": "2", "score": -1},
-                                 {"box": "3", "score": -1},
-                                 {"box": "4", "score": -1},
-                                 {"box": "5", "score": -1},
-                                 {"box": "6", "score": -1},
-                                 {"box": "1pair", "score": -1},
-                                 {"box": "2pair", "score": -1},
-                                 {"box": "3ofAKind", "score": -1},
-                                 {"box": "4ofAKind", "score": -1},
-                                 {"box": "smallStreight", "score": -1},
-                                 {"box": "largeStreight", "score": -1},
-                                 {"box": "fullHouse", "score": -1},
-                                 {"box": "yatzy", "score": -1},
-                                 {"box": "chance", "score": -1}
+                                 {'box': '1', 'score': -1},
+                                 {'box': '2', 'score': -1},
+                                 {'box': '3', 'score': -1},
+                                 {'box': '4', 'score': -1},
+                                 {'box': '5', 'score': -1},
+                                 {'box': '6', 'score': -1},
+                                 {'box': '1pair', 'score': -1},
+                                 {'box': '2pair', 'score': -1},
+                                 {'box': '3ofAKind', 'score': -1},
+                                 {'box': '4ofAKind', 'score': -1},
+                                 {'box': 'smallStreight', 'score': -1},
+                                 {'box': 'largeStreight', 'score': -1},
+                                 {'box': 'fullHouse', 'score': -1},
+                                 {'box': 'yatzy', 'score': -1},
+                                 {'box': 'chance', 'score': -1}
                                ]
                              },
                              {
-                               "userId": "321",
-                               "scoreBoxes":
+                               'userId': '321',
+                               'scoreBoxes':
                                [
-                                 {"box": "1", "score": -1},
-                                 {"box": "2", "score": -1},
-                                 {"box": "3", "score": -1},
-                                 {"box": "4", "score": -1},
-                                 {"box": "5", "score": -1},
-                                 {"box": "6", "score": -1},
-                                 {"box": "1pair", "score": -1},
-                                 {"box": "2pair", "score": -1},
-                                 {"box": "3ofAKind", "score": -1},
-                                 {"box": "4ofAKind", "score": -1},
-                                 {"box": "smallStreight", "score": -1},
-                                 {"box": "largeStreight", "score": -1},
-                                 {"box": "fullHouse", "score": -1},
-                                 {"box": "yatzy", "score": -1},
-                                 {"box": "chance", "score": -1}
+                                 {'box': '1', 'score': -1},
+                                 {'box': '2', 'score': -1},
+                                 {'box': '3', 'score': -1},
+                                 {'box': '4', 'score': -1},
+                                 {'box': '5', 'score': -1},
+                                 {'box': '6', 'score': -1},
+                                 {'box': '1pair', 'score': -1},
+                                 {'box': '2pair', 'score': -1},
+                                 {'box': '3ofAKind', 'score': -1},
+                                 {'box': '4ofAKind', 'score': -1},
+                                 {'box': 'smallStreight', 'score': -1},
+                                 {'box': 'largeStreight', 'score': -1},
+                                 {'box': 'fullHouse', 'score': -1},
+                                 {'box': 'yatzy', 'score': -1},
+                                 {'box': 'chance', 'score': -1}
                                ]
                              }
                            ]
@@ -113,7 +113,7 @@ $scope.changedBoard = {
      $scope.usersScore = [];
      for (var i = 0; i < $scope.fiveDiceGame.score.length; i++)
      {
-       $scope.usersScore.push(new UserScore($scope.fiveDiceGame.score[i]))
+       $scope.usersScore.push(new UserScore($scope.fiveDiceGame.score[i]));
      }
     };
 
@@ -129,17 +129,17 @@ $scope.changedBoard = {
       if (box.score === -1) //and player turn
       {
 
-        RollService.submitScore("putScore", { box: box.box, dices: Game.getUserHand()}).then(function(){},function(error){
+        RollService.submitScore('putScore', { box: box.box, dices: Game.getUserHand()}).then(function(){},function(){
           $scope.fiveDiceGame = $scope.changedBoard;
         });
 
-        console.log("Submit score....");
+        console.log('Submit score....');
         Game.finishTurn();
         Game.startTurn();
       }
       else
       {
-        alert("Can't touch this");
+        alert('Can\'t touch this');
       }
     };
 
@@ -151,7 +151,7 @@ $scope.changedBoard = {
      });
 
      $scope.resetBoard = function (){
-//     alert("asdas");
+//     alert('asdas');
         console.log( $scope.fiveDiceGame);
         $scope.fiveDiceGame = angular.fromJson(angular.toJson($scope.clearBoard));
         console.log( $scope.clearBoard);

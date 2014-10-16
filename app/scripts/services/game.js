@@ -15,62 +15,62 @@ angular.module('piratzyApp')
 
     var emitGameStatus = function(){
       $rootScope.$emit('game:gameStatus', gameActive);
-    }
+    };
 
     var emitTurnStatus = function(){
       $rootScope.$emit('game:playerTurnStatus', turnStatus);
-    }
+    };
 
     function startGame() {
       gameActive = true;
       turnStatus = true;
       emitGameStatus();
       emitTurnStatus();
-    };
+    }
 
     function finishGame (){
       gameActive = false;
       turnStatus = false;
       emitTurnStatus();
       emitGameStatus();
-    };
+    }
 
     function setUserHand(selectedNumbers){
       userHand = selectedNumbers;
-    };
+    }
 
     function getTotalSelectedDices () {
       var total = 0;
       for (var i = 0; i < userHand.length; i++)
       {
-        total += userHand[i];
+        total += userHand[i].number;
       }
       return total;
-    };
+    }
 
     function getUserHand () {
       return userHand;
-    };
+    }
 
     function startTurn () {
       console.log('startTurn....');
       turnStatus = true;
       emitTurnStatus();
-    };
+    }
 
     function finishTurn () {
       console.log('finishTurn....');
       turnStatus = false;
       emitTurnStatus();
-    };
+    }
 
     function getGameActive () {
       return gameActive;
-    };
+    }
 
     function getPlayerTurnStatus () {
       return turnStatus;
-    };
+    }
 
     // Public API here
     return {

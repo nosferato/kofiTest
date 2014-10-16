@@ -22,8 +22,8 @@ angular.module('piratzyApp')
           total += this.scoreBoxes[i].score > -1 ? this.scoreBoxes[i].score : 0;
         }
         return total;
-      }
-    };
+      };
+    }
 
     // Public API here
     return UserScore;

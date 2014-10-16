@@ -22,7 +22,7 @@ angular.module('piratzyApp')
           {
            if (scope.dicesArray[i].selected)
            {
-             selectedHand.push(scope.dicesArray[i].number);
+             selectedHand.push(i);
            }
           }
 
@@ -64,7 +64,7 @@ return Math.floor(Math.random() * 6) + 1;
               }
             }
 
-            RollService.roll("roll", dicesForRoll).then(function(){},function(error){
+            RollService.roll('roll', dicesForRoll).then(function(){},function(){
 
               var dices = [ { value: randomNumber()}, { value: randomNumber()}, { value: randomNumber()}];
               var newDices = [];
@@ -80,11 +80,11 @@ return Math.floor(Math.random() * 6) + 1;
               }
               console.log(newDices);
 
-              for (var i = 0; i < dicesArray.length;i++)
+              for (var j = 0; i < dicesArray.length;i++)
               {
-               if (!dicesArray[i].selected && newDices[0])
+               if (!dicesArray[j].selected && newDices[0])
                {
-                 dicesArray[i].number = newDices[0];
+                 dicesArray[j].number = newDices[0];
                  newDices.splice(0,1);
                }
               }
