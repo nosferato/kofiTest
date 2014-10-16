@@ -22,7 +22,8 @@ angular.module('piratzyApp')
     function setPlayType(playType){
       self.playType = playType;
     }
-
+//refactor into one with submitScore
+//make constants from the paths
     function roll(type, holding){
       delete self.data.scorebox;
       self.data.holding = holding;

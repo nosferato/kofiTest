@@ -38,13 +38,14 @@ angular.module('piratzyApp')
     function setUserHand(selectedNumbers){
       userHand = selectedNumbers;
     }
-
+    //calculate total of all selected dices
     function getTotalSelectedDices () {
       var total = 0;
       for (var i = 0; i < userHand.length; i++)
       {
-        total += userHand[i].number;
+        total += userHand[i];
       }
+
       return total;
     }
 

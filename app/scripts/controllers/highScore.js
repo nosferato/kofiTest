@@ -3,7 +3,7 @@
 /**
  * @ngdoc function
  * @name piratzyApp.controller:AboutCtrl
- * @description
+ * @description High Score page
  * # AboutCtrl
  * Controller of the piratzyApp
  */

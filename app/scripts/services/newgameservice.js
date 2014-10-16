@@ -15,7 +15,7 @@ angular.module('piratzyApp')
     amount,
     currency,
     targetPoints;
-    
+    //factory should not use 'this'...change that
     function reset(){
       this.game = '5yatzy';
       this.playType = 3;
@@ -47,6 +47,7 @@ angular.module('piratzyApp')
     function startGame(path){
 
       var successRedirectUrl = '/yatzy/play/';
+      //link should be changed
       var errorRedirectUrl = '/singleGame';
       $http.post(path, angular.toJson(this))
            .success(function(data){

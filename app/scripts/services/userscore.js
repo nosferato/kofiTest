@@ -8,7 +8,7 @@
  * Factory in the piratzyApp.
  */
 
- //this is used for eventual mapping for JSON received from REST
+ //this is used for eventual mapping for JSON board received from REST call
 angular.module('piratzyApp')
   .factory('UserScore', function () {
 

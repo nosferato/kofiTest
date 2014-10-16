@@ -3,62 +3,65 @@
 /**
  * @ngdoc function
  * @name piratzyApp.controller:BoardCtrl
- * @description
+ * @description Board data and functionality
  * # BoardCtrl
  * Controller of the piratzyApp
  */
 angular.module('piratzyApp')
   .controller('BoardCtrl', function ($rootScope, $scope, UserScore, Game, RollService) {
 
-     $scope.usersScore = [];
-$scope.changedBoard = {
-                           'score':
-                           [
-                             {
-                               'userId': '123',
-                               'scoreBoxes':
+    $scope.usersScore = [];
+    //change board - fake board that you get from server when you submit score
+    $scope.changedBoard = {
+                               'score':
                                [
-                                 {'box': '1', 'score': 2},
-                                 {'box': '2', 'score': -1},
-                                 {'box': '3', 'score': -1},
-                                 {'box': '4', 'score': -1},
-                                 {'box': '5', 'score': -1},
-                                 {'box': '6', 'score': -1},
-                                 {'box': '1pair', 'score': -1},
-                                 {'box': '2pair', 'score': -1},
-                                 {'box': '3ofAKind', 'score': -1},
-                                 {'box': '4ofAKind', 'score': -1},
-                                 {'box': 'smallStreight', 'score': -1},
-                                 {'box': 'largeStreight', 'score': -1},
-                                 {'box': 'fullHouse', 'score': -1},
-                                 {'box': 'yatzy', 'score': -1},
-                                 {'box': 'chance', 'score': -1}
+                                 {
+                                   'userId': '123',
+                                   'scoreBoxes':
+                                   [
+                                     {'box': '1', 'score': 2},
+                                     {'box': '2', 'score': -1},
+                                     {'box': '3', 'score': -1},
+                                     {'box': '4', 'score': -1},
+                                     {'box': '5', 'score': -1},
+                                     {'box': '6', 'score': -1},
+                                     {'box': '1pair', 'score': -1},
+                                     {'box': '2pair', 'score': -1},
+                                     {'box': '3ofAKind', 'score': -1},
+                                     {'box': '4ofAKind', 'score': -1},
+                                     {'box': 'smallStreight', 'score': -1},
+                                     {'box': 'largeStreight', 'score': -1},
+                                     {'box': 'fullHouse', 'score': -1},
+                                     {'box': 'yatzy', 'score': -1},
+                                     {'box': 'chance', 'score': -1}
+                                   ]
+                                 },
+                                 {
+                                   'userId': '321',
+                                   'scoreBoxes':
+                                   [
+                                     {'box': '1', 'score': -1},
+                                     {'box': '2', 'score': -1},
+                                     {'box': '3', 'score': -1},
+                                     {'box': '4', 'score': -1},
+                                     {'box': '5', 'score': -1},
+                                     {'box': '6', 'score': -1},
+                                     {'box': '1pair', 'score': -1},
+                                     {'box': '2pair', 'score': -1},
+                                     {'box': '3ofAKind', 'score': -1},
+                                     {'box': '4ofAKind', 'score': -1},
+                                     {'box': 'smallStreight', 'score': -1},
+                                     {'box': 'largeStreight', 'score': -1},
+                                     {'box': 'fullHouse', 'score': -1},
+                                     {'box': 'yatzy', 'score': -1},
+                                     {'box': 'chance', 'score': -1}
+                                   ]
+                                 }
                                ]
-                             },
-                             {
-                               'userId': '321',
-                               'scoreBoxes':
-                               [
-                                 {'box': '1', 'score': -1},
-                                 {'box': '2', 'score': -1},
-                                 {'box': '3', 'score': -1},
-                                 {'box': '4', 'score': -1},
-                                 {'box': '5', 'score': -1},
-                                 {'box': '6', 'score': -1},
-                                 {'box': '1pair', 'score': -1},
-                                 {'box': '2pair', 'score': -1},
-                                 {'box': '3ofAKind', 'score': -1},
-                                 {'box': '4ofAKind', 'score': -1},
-                                 {'box': 'smallStreight', 'score': -1},
-                                 {'box': 'largeStreight', 'score': -1},
-                                 {'box': 'fullHouse', 'score': -1},
-                                 {'box': 'yatzy', 'score': -1},
-                                 {'box': 'chance', 'score': -1}
-                               ]
-                             }
-                           ]
-                         };
-     $scope.clearBoard = {
+                             };
+
+    //define empty board
+    $scope.clearBoard = {
                            'score':
                            [
                              {
@@ -107,8 +110,13 @@ $scope.changedBoard = {
                          };
 
     //set empty board by default
+     //for some reason it doesn't trigger watch on fiveDiceGame if it isn't written like this
+     //$scope.fiveDiceGame = $scope.clearBoard   there must be other solution, investigate this
     $scope.fiveDiceGame = angular.fromJson(angular.toJson($scope.clearBoard));
 
+    //convert the board to angular object
+    //this UserScore (userscore.js) should have additional methods for making the custom totals (for displaying on cardboard)
+    //that are not given from the server
     $scope.convertToAngular = function (){
      $scope.usersScore = [];
      for (var i = 0; i < $scope.fiveDiceGame.score.length; i++)
@@ -117,6 +125,7 @@ $scope.changedBoard = {
      }
     };
 
+    //if value of board has been changed, render board again
     $scope.$watch('fiveDiceGame',function(newVal, oldVal){
      if(newVal !== oldVal)
      {
@@ -126,11 +135,15 @@ $scope.changedBoard = {
 
     $scope.submitScore = function(box){
           //box is empty
-      if (box.score === -1) //and player turn
+      if (box.score === -1) //and player turn condition should be added
       {
+        //temporary...
+        box.score = Game.getTotalSelectedDices();
 
         RollService.submitScore('putScore', { box: box.box, dices: Game.getUserHand()}).then(function(){},function(){
-          $scope.fiveDiceGame = $scope.changedBoard;
+
+         //whole board should be returned from the server
+         // $scope.fiveDiceGame = $scope.changedBoard;
         });
 
         console.log('Submit score....');
@@ -143,7 +156,6 @@ $scope.changedBoard = {
       }
     };
 
-
      $rootScope.$on('game:gameStatus',function(event, gameActive){
        if (gameActive){
         $scope.resetBoard();
@@ -151,12 +163,9 @@ $scope.changedBoard = {
      });
 
      $scope.resetBoard = function (){
-//     alert('asdas');
-        console.log( $scope.fiveDiceGame);
+     //for some reason it doesn't trigger watch on fiveDiceGame if it isn't written like this
+     //$scope.fiveDiceGame = $scope.clearBoard   there must be other solution, investigate this
         $scope.fiveDiceGame = angular.fromJson(angular.toJson($scope.clearBoard));
-        console.log( $scope.clearBoard);
-        console.log( $scope.fiveDiceGame);
-
      };
 
      $scope.convertToAngular();
